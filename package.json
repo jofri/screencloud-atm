@@ -1,0 +1,28 @@
+{
+  "name": "screencloud-atm",
+  "version": "1.0.0",
+  "description": "An ATM mockup app created by Johan Friedner",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jofri/screencloud-atm.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jofri/screencloud-atm/issues"
+  },
+  "homepage": "https://github.com/jofri/screencloud-atm#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.17.0",
+    "eslint-plugin-react": "^7.21.5"
+  }
+}
