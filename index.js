@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const server = require('http').createServer(app);
 const path = require('path');
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 // Serve static files (index.html) from from build folder
 app.use(express.static(path.join(__dirname, '/client/build')));
