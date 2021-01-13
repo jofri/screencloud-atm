@@ -4,7 +4,8 @@ import './Splashscreen.css';
 function Splashscreen () {
   return (
     <>
-    Splashscreen
+    Splashscreen<br/>
+      <a href="/auth">Login</a>
     </>
   );
 }
