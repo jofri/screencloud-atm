@@ -1,7 +1,13 @@
 
 import './Navbar.css';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import eject from '../../assets/eject.svg';
+import screencloud from '../../assets/screencloudlogo.svg';
 
 function Navbar () {
+
+  const classes = useStyles();
 
   // Clear localStorage of user
   const logout = () => {
@@ -10,14 +16,33 @@ function Navbar () {
     window.location.replace('/');
   };
 
-
   return (
     <>
-    Navbar
-      {localStorage.getItem('user') ? <button onClick={logout}>Logout</button> : null}
+      <Button className={classes.logo} onClick={()=>{window.location.replace('/');}}><img className={classes.eject} src={screencloud} alt='Screencloud'/>ScreenCloud-ATM</Button>
+      {localStorage.getItem('user') ? <Button className={classes.button} onClick={logout}><img className={classes.eject} src={eject} alt='Eject'/>Eject Card</Button> : null}
     </>
   );
 }
+
+// Component style
+const useStyles = makeStyles(() => ({
+  button: {
+    height: '5vh',
+    marginTop: '2vh',
+    right: '2vw',
+    position: 'absolute',
+  },
+  logo: {
+    height: '5vh',
+    marginTop: '2vh',
+    left: '2vw',
+    position: 'absolute',
+  },
+  eject: {
+    width: '1rem',
+    marginRight: '0.5vw',
+  },
+}));
 
 export default Navbar;
 

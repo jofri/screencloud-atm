@@ -66,10 +66,10 @@ function App () {
       <Router>
         <Switch>
           <Route exact path='/'>
-            {user.currentBalance ? <><Navbar/><Dashboard user={user}/></> : <Splashscreen/>}
+            {user.currentBalance ? <><Navbar/><Dashboard user={user}/></> : <><Navbar/><Splashscreen/></>}
           </Route>
           <Route exact path='/auth'>
-            <Pin authUser={authUser}/>
+            <Navbar/><Pin authUser={authUser}/>
           </Route>
           <Route exact path='/withdrawal'>
             {user.currentBalance  ? <><Navbar/><Withdrawal user={user}/></> : <FourOFour/>}

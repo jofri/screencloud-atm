@@ -6,10 +6,14 @@ const withdraw = (amount, user) => {
   // Get number of bills from local storage
   const bills = JSON.parse(localStorage.getItem('bills'));
 
-  // If ATM is out of bills, return outOfBills string
+  // If ATM is out of bills, return 'No avalible notes' string
   if (bills['5'] === 0 && bills['10'] === 0 && bills['20'] == 0 ) {
     return 'Can not complete withdrawal: No avalible notes';
   }
+
+  // Confirm that amount match bills avalible
+  if (amount % 10 != 5 && amount % 10 != 0) return 'Can not complete withdrawal: Please specify an amount ending in 5 or 0';
+
 
   // Object to keep track of withdrawn notes
   const billsWithdrawn = {
@@ -66,7 +70,7 @@ const withdraw = (amount, user) => {
 
   // Procced with withdrawal - if ATM is low on notes, confirm that user accepts receiving a lower sum
   if (billsWithdrawn.currentSum != targetSum) {
-    if (confirm(`The ATM is only capable of dispensing ${billsWithdrawn.currentSum}. Do you want to continue?`)) {
+    if (confirm(`The ATM is only capable of dispensing £${billsWithdrawn.currentSum}. Do you want to continue?`)) {
       return overdraftProtection(remainingBalance);
     } else {
       return 'Can not complete withdrawal: Canceled by user';
