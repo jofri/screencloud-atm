@@ -1,10 +1,16 @@
 
 import './Dashboard.css';
 
-function Dashboard () {
+function Dashboard (props) {
   return (
     <>
-    Dashboard
+    Dashboard<br/><br/><br/><br/>
+
+      <p>Welcome: John Doe</p><br/><br/>
+      <p>Balance: £{props.user.currentBalance}</p><br/><br/>
+      <a href="/withdrawal">Get Cash</a>
+
+
     </>
   );
 }

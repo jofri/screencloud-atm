@@ -20,6 +20,7 @@ function Pin (props) {
           setPin(e.target.value);
         }
         } type="text"/>
+        <button type="submit">Submit</button>
       </form>
     </>
   );

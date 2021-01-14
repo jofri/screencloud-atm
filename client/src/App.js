@@ -1,24 +1,41 @@
-/* import { useState } from 'react'; */
+import { useEffect, useState } from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+// Import components
 import Navbar from './components/Navbar/Navbar';
 import Dashboard from './components/Dashboard/Dashboard';
 import Pin from './components/Pin/Pin';
 import Splashscreen from './components/Splashscreen/Splashscreen';
 import Withdrawal from './components/Withdrawal/Withdrawal';
-import Completed from './components/Completed/Completed';
 import Incorrectpin from './components/Incorrectpin/Incorrectpin';
 import FourOFour from './helpers/FourOFour';
 
 
 function App () {
 
-  /*   // User state
+  // User state
   const [user, setUser] = useState({});
-  // Auth state
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false); */
 
+
+  console.log('User: ', user);
+  console.log('Bills: ', localStorage.getItem('bills'));
+
+
+  // If authenticated, store localStore user in state and set number of bills ATM is carrying
+  useEffect(()=>{
+    if (localStorage.getItem('user')) {
+      setUser(JSON.parse(localStorage.getItem('user')));
+      const billObj = {
+        '20': 7,
+        '10': 15,
+        '5': 4,
+      };
+      if (!localStorage.getItem('bills')) {
+        localStorage.setItem('bills', JSON.stringify(billObj));
+      }
+    }
+  },[]);
 
   // Authenticate user via API
   const authUser = (pin) => {
@@ -28,18 +45,19 @@ function App () {
         'Content-Type': 'application/json'
       },
       method: 'POST',
-      body: JSON.stringify({pin: pin})
+      body: JSON.stringify({pin: pin}) // Send pin as JSON
     })
       .then(response => response.json())
       .then(data => {
-        if (data.currentBalance) {
-          console.log(data.currentBalance);
-          localStorage.setItem('user', data);
-          window.location.replace('/');
-        } else window.location.replace('/incorrectpin');
+        if (data.currentBalance) { // If user is returned
+          localStorage.setItem('user', JSON.stringify(data)); // Save user in local storage
+          window.location.replace('/'); // Redirect to root route
+        } else window.location.replace('/incorrectpin'); // Else redirect to incorrectpin page
       })
       .catch(error => console.log('Can not get user: ', error));
   };
+
+
 
 
 
@@ -48,16 +66,13 @@ function App () {
       <Router>
         <Switch>
           <Route exact path='/'>
-            {localStorage.getItem('user') ? <><Navbar/><Dashboard/></> : <Splashscreen/>}
+            {user.currentBalance ? <><Navbar/><Dashboard user={user}/></> : <Splashscreen/>}
           </Route>
           <Route exact path='/auth'>
             <Pin authUser={authUser}/>
           </Route>
           <Route exact path='/withdrawal'>
-            {localStorage.getItem('user') ? <><Navbar/><Withdrawal/></> : <FourOFour/>}
-          </Route>
-          <Route exact path='/completed'>
-            {localStorage.getItem('user') ? <><Navbar/><Completed/></> : <FourOFour/>}
+            {user.currentBalance  ? <><Navbar/><Withdrawal user={user}/></> : <FourOFour/>}
           </Route>
           <Route exact path='/incorrectpin'>
             <Incorrectpin/>

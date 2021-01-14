@@ -6,6 +6,7 @@ function Navbar () {
   // Clear localStorage of user
   const logout = () => {
     localStorage.removeItem('user');
+    localStorage.removeItem('bills');
     window.location.replace('/');
   };
 
