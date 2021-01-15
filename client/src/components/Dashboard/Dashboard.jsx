@@ -1,7 +1,8 @@
 
-import './Dashboard.css';
 
 import React from 'react';
+
+// Import Material UI components
 import Button from '@material-ui/core/Button';
 import CardContent from '@material-ui/core/CardContent';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -10,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
+
 
 function Dashboard (props) {
 
@@ -22,6 +24,7 @@ function Dashboard (props) {
       <Container>
         <Grid container>
 
+          {/* User information component */}
           <Grid item xs={12} sm={3} md={3}>
             <Paper className={classes.userInfo}>
               <Typography>
@@ -33,6 +36,7 @@ function Dashboard (props) {
             </Paper>
           </Grid>
 
+          {/* Withdrawal button */}
           <Grid item xs={12} sm={9} md={9}>
             <Container className={classes.cardGrid} >
               <Grid container spacing={4}>
@@ -117,13 +121,10 @@ function Dashboard (props) {
         </Grid>
       </Container>
     </React.Fragment>
-
-
-
   );
 }
 
-// Component style
+
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
     paddingTop: theme.spacing(8),

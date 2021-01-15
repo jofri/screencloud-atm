@@ -1,10 +1,10 @@
 
 
 
-import './Pin.css';
+
 import { useState } from 'react';
 
-import React from 'react';
+// Import Material UI components
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -19,8 +19,9 @@ import { makeStyles } from '@material-ui/core/styles';
 
 function Pin (props) {
 
-  const [ pin, setPin ]= useState('');
   const classes = useStyles();
+
+  const [ pin, setPin ]= useState(''); // State to hold entered PIN
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -35,10 +36,10 @@ function Pin (props) {
             Enter your 4-digit PIN
           </Typography>
           <form className={classes.form} noValidate onSubmit={(e) => {
-            e.preventDefault();
-            if (pin === '') return;
-            props.authUser(pin);
-            setPin('');
+            e.preventDefault(); // Prevent page reload
+            if (pin === '') return; // Do not submit if no entered PIN
+            props.authUser(pin); // Run auth function
+            setPin(''); // Clear input feild
           }}>
             <TextField
               variant="outlined"

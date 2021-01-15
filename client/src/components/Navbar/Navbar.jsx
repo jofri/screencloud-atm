@@ -1,9 +1,10 @@
 
-import './Navbar.css';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+
 import eject from '../../assets/eject.svg';
 import screencloud from '../../assets/screencloudlogo.svg';
+
 
 function Navbar () {
 
@@ -19,12 +20,13 @@ function Navbar () {
   return (
     <>
       <Button className={classes.logo} onClick={()=>{window.location.replace('/');}}><img className={classes.eject} src={screencloud} alt='Screencloud'/>ScreenCloud-ATM</Button>
+      {/* If user is logged in, display eject card button */}
       {localStorage.getItem('user') ? <Button className={classes.button} onClick={logout}><img className={classes.eject} src={eject} alt='Eject'/>Eject Card</Button> : null}
     </>
   );
 }
 
-// Component style
+
 const useStyles = makeStyles(() => ({
   button: {
     height: '5vh',

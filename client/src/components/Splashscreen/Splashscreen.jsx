@@ -1,7 +1,6 @@
 
-import './Splashscreen.css';
 
-import React from 'react';
+// Import Material UI components
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
@@ -31,7 +30,6 @@ function Splashscreen () {
 }
 
 
-// Component style
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100vh',
