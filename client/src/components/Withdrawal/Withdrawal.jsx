@@ -137,7 +137,7 @@ function Withdrawal (props) {
         setWithdrawCalcState(withdraw(amount, props.user)); // Input requested amount in withdraw helper function and set result as WithdrawCalcState
       }}>
         <TextField id="outlined-basic" type="number" label="Amount" variant="filled" inputProps={{style: {fontSize: 60, color: 'white'}}} InputLabelProps={{style: {fontSize: 18}}} onChange={(e) => {setAmount(e.target.value);}} />
-        <Button className={classes.button} color="primary" variant="contained" type="submit">Confirm</Button>
+        <Button id="withdrawButton" className={classes.button} color="primary" variant="contained" type="submit">Confirm</Button>
         {/* Make dialogue / alert boxes avalible */}
         <Alert open={alertOpen} redirect={redirect} text={alertText}/>
         <Billsalert open={billsalertOpen} redirect={redirect} text={billsalertText}/>

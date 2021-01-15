@@ -27,9 +27,9 @@ function Dashboard (props) {
           {/* User information component */}
           <Grid item xs={12} sm={3} md={3}>
             <Paper className={classes.userInfo}>
-              <Typography>
+              <Typography component={'span'}>
                 <p className={classes.header}>Welcome</p>
-                <p className={classes.userInformation}>John Doe</p>
+                <p className={classes.userInformation} id="username">John Doe</p>
                 <p className={classes.header}>Balance</p>
                 <p className={classes.userInformation}>£{props.user.currentBalance}</p>
               </Typography>
@@ -42,9 +42,9 @@ function Dashboard (props) {
               <Grid container spacing={4}>
                 <Grid item xs={12} sm={6} md={6}>
                   <Paper className={classes.card}>
-                    <Button className={classes.button} variant="contained" color="primary" onClick={() => {window.location.replace('/withdrawal');}}>
+                    <Button id="getCashId" className={classes.button} variant="contained" color="primary" onClick={() => {window.location.replace('/withdrawal');}}>
                       <CardContent className={classes.cardContent}>
-                        <Typography gutterBottom variant="h" component="h1">
+                        <Typography gutterBottom variant="h4" component="h1">
                             GET CASH
                         </Typography>
                       </CardContent>
@@ -54,7 +54,7 @@ function Dashboard (props) {
                 <Grid item xs={12} sm={6} md={6}>
                   <Paper className={classes.card}>
                     <CardContent className={classes.cardContent}>
-                      <Typography gutterBottom variant="h" component="h1">
+                      <Typography gutterBottom variant="h4" component="h1">
                             DEPOSIT
                       </Typography>
                     </CardContent>
@@ -63,7 +63,7 @@ function Dashboard (props) {
                 <Grid item xs={12} sm={6} md={6}>
                   <Paper className={classes.card}>
                     <CardContent className={classes.cardContent}>
-                      <Typography gutterBottom variant="h" component="h1">
+                      <Typography gutterBottom variant="h4" component="h1">
                             PAYMENTS
                       </Typography>
                     </CardContent>
@@ -72,7 +72,7 @@ function Dashboard (props) {
                 <Grid item xs={12} sm={6} md={6}>
                   <Paper className={classes.card}>
                     <CardContent className={classes.cardContent}>
-                      <Typography gutterBottom variant="h" component="h1">
+                      <Typography gutterBottom variant="h4" component="h1">
                             CREDIT CARD
                       </Typography>
                     </CardContent>
@@ -81,7 +81,7 @@ function Dashboard (props) {
                 <Grid item xs={12} sm={6} md={6}>
                   <Paper className={classes.card}>
                     <CardContent className={classes.cardContent}>
-                      <Typography gutterBottom variant="h" component="h1">
+                      <Typography gutterBottom variant="h4" component="h1">
                             OFFERS
                       </Typography>
                     </CardContent>
@@ -90,7 +90,7 @@ function Dashboard (props) {
                 <Grid item xs={12} sm={6} md={6}>
                   <Paper className={classes.card}>
                     <CardContent className={classes.cardContent}>
-                      <Typography gutterBottom variant="h" component="h1">
+                      <Typography gutterBottom variant="h4" component="h1">
                             CHANGE PIN
                       </Typography>
                     </CardContent>
@@ -99,7 +99,7 @@ function Dashboard (props) {
                 <Grid item xs={12} sm={6} md={6}>
                   <Paper className={classes.card}>
                     <CardContent className={classes.cardContent}>
-                      <Typography gutterBottom variant="h" component="h1">
+                      <Typography gutterBottom variant="h4" component="h1">
                             SETTINGS
                       </Typography>
                     </CardContent>
@@ -108,7 +108,7 @@ function Dashboard (props) {
                 <Grid item xs={12} sm={6} md={6}>
                   <Paper className={classes.card}>
                     <CardContent className={classes.cardContent}>
-                      <Typography gutterBottom variant="h" component="h1">
+                      <Typography gutterBottom variant="h4" component="h1">
                             OTHER
                       </Typography>
                     </CardContent>

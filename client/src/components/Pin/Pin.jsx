@@ -58,6 +58,7 @@ function Pin (props) {
               variant="contained"
               color="primary"
               className={classes.submit}
+              id="loginButton"
             >
               Submit
             </Button>

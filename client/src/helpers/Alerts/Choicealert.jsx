@@ -34,7 +34,7 @@ function Choicealert (props) {
         <DialogTitle id="alert-dialog-slide-title">{''}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            <p>{props.text}</p>
+            {props.text}
           </DialogContentText>
         </DialogContent>
         <DialogActions>

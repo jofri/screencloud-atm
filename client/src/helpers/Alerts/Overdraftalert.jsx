@@ -33,14 +33,14 @@ function Overdraftalert (props) {
         <DialogTitle id="alert-dialog-slide-title">{''}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            <p>{props.text}</p>
+            {props.text}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={props.cancel} color="primary">
             Cancel
           </Button>
-          <Button onClick={props.proceedOverdraft} color="primary">
+          <Button id="overdraftProceed" onClick={props.proceedOverdraft} color="primary">
             Proceed
           </Button>
         </DialogActions>

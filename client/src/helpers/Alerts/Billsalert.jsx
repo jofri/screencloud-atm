@@ -34,14 +34,14 @@ function Billsalert (props) {
         <DialogTitle id="alert-dialog-slide-title">{''}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            <p>Amount withdrawn: £{props.text[0]}</p>
-            <p>£5 bills: {props.text[1]}x</p>
-            <p>£10 bills: {props.text[2]}x</p>
-            <p>£20 bills: {props.text[3]}x</p>
+            Amount withdrawn: £{props.text[0]}<br/><br/>
+            £5 bills: {props.text[1]}x<br/>
+            £10 bills: {props.text[2]}x<br/>
+            £20 bills: {props.text[3]}x<br/>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={props.redirect} color="primary">
+          <Button id="alertProceed" onClick={props.redirect} color="primary">
             Proceed
           </Button>
         </DialogActions>

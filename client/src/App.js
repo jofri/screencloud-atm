@@ -49,9 +49,10 @@ function App () {
     })
       .then(response => response.json())
       .then(data => {
-        if (data.currentBalance) { // If user is returned
+        if (data.currentBalance) { // If correct type of user is returned
           localStorage.setItem('user', JSON.stringify(data)); // Save user in local storage
           window.location.replace('/'); // Redirect to root route
+          return data; // Return for testing purposes
         } else window.location.replace('/incorrectpin'); // Else redirect to incorrectpin page
       })
       .catch(error => console.log('Can not get user: ', error));

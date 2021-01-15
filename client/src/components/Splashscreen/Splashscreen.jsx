@@ -16,6 +16,7 @@ function Splashscreen () {
       <CssBaseline />
       <Grid item xs={12} sm={12} md={12} className={classes.image} />
       <Button
+        id="splashScreenButton"
         type="submit"
         fullWidth
         variant="contained"

@@ -21,7 +21,7 @@ function Navbar () {
     <>
       <Button className={classes.logo} onClick={()=>{window.location.replace('/');}}><img className={classes.eject} src={screencloud} alt='Screencloud'/>ScreenCloud-ATM</Button>
       {/* If user is logged in, display eject card button */}
-      {localStorage.getItem('user') ? <Button className={classes.button} onClick={logout}><img className={classes.eject} src={eject} alt='Eject'/>Eject Card</Button> : null}
+      {localStorage.getItem('user') ? <Button id="logoutButton" className={classes.button} onClick={logout}><img className={classes.eject} src={eject} alt='Eject'/>Eject Card</Button> : null}
     </>
   );
 }
