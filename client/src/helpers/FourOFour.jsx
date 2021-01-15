@@ -1,7 +1,5 @@
 
 
-// Redirect user back to root
-setTimeout(() => window.location.replace('/'), 2000);
 
 function FourOFour () {
   return (

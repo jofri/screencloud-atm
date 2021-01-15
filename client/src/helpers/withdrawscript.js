@@ -18,7 +18,7 @@ const withdraw = (amount, user) => {
   if (amount % 10 != 5 && amount % 10 != 0) return ['Can not complete withdrawal: Please specify an amount ending in 5 or 0'];
 
 
-  // Object to keep track of withdrawn notes
+  // Object to keep track of withdrawn bills
   const billsWithdrawn = {
     '20': 0,
     '10': 0,
@@ -34,9 +34,9 @@ const withdraw = (amount, user) => {
       if (billsWithdrawn.currentSum < targetSum) {
         if (bills[key] > 0) { // Only withdraw if note is avalible in ATM
           if ((billsWithdrawn.currentSum + Number(key)) <= targetSum) { // Only withdraw if note does not surpass target sum
-            billsWithdrawn.currentSum += Number(key);
-            bills[key]--;
-            billsWithdrawn[key]++;
+            billsWithdrawn.currentSum += Number(key); // Add note to current sum
+            bills[key]--; // Remove bill from ATM
+            billsWithdrawn[key]++; // Add bill to object tracking bills withdrawn
           }
         }
       }

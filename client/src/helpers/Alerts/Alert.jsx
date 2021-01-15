@@ -1,4 +1,8 @@
-import React from 'react';
+
+
+import { useState, useEffect, forwardRef } from 'react';
+
+// Import Material UI components
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -6,17 +10,18 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
-import { useState, useEffect, forwardRef } from 'react';
+
 
 
 function Alert (props) {
 
+  // Holds open/closed state and listen for changes
   const [open, setOpen] = useState(false);
-
   useEffect(() => {
     if (props.open === true) setOpen(true);
     if (props.open === false) setOpen(false);
   },[props]);
+
 
   return (
     <div>

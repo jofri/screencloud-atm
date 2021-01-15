@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -17,10 +18,9 @@ function App () {
   // User state
   const [user, setUser] = useState({});
 
-
+  // FOR REVIEW PURPOSES - Log user state and how many bills are left in ATM
   console.log('User: ', user);
   console.log('Bills: ', localStorage.getItem('bills'));
-
 
   // If authenticated, store localStore user in state and set number of bills ATM is carrying
   useEffect(()=>{
@@ -57,21 +57,20 @@ function App () {
       .catch(error => console.log('Can not get user: ', error));
   };
 
-
-
-
-
+  // Use react routing to render components for different paths
   return (
     <>
       <Router>
         <Switch>
           <Route exact path='/'>
+            {/* If user is authenticated, render dashboard - else, splashcreen */}
             {user.currentBalance ? <><Navbar/><Dashboard user={user}/></> : <><Navbar/><Splashscreen/></>}
           </Route>
           <Route exact path='/auth'>
             <Navbar/><Pin authUser={authUser}/>
           </Route>
           <Route exact path='/withdrawal'>
+            {/* Protect withdrawal route by checking if user is authenticated */}
             {user.currentBalance  ? <><Navbar/><Withdrawal user={user}/></> : <FourOFour/>}
           </Route>
           <Route exact path='/incorrectpin'>
